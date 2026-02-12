@@ -1,0 +1,32 @@
+// Global variables partial
+
+// Colors
+/* SCSS HEX */
+$lobster-pink: #db5461ff;
+$ocean-twilight: #4c4c9dff;
+$sunflower-gold: #fabc3cff;
+$periwinkle: #c3c9e9ff;
+$muted-olive: #95bf8fff;
+
+$radius: 8px;
+
+// Media Queries
+$bp-s: 480px;
+$bp-m: 768px;
+$bp-l: 1024px;
+
+.lobster-pink {
+  background-color: $lobster-pink;
+}
+.ocean-twilight {
+  background-color: $ocean-twilight;
+}
+.sunflower-gold {
+  background-color: $sunflower-gold;
+}
+.periwinkle {
+  background-color: $periwinkle;
+}
+.muted-olive {
+  background-color: $muted-olive;
+}
