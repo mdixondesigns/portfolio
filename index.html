@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Portfolio site" />
+    <title>Portfolio</title>
+    <link rel="icon" href="/favicon.ico" />
+    <style>
+      :root{
+        --bg:#0f1724;
+        --card:#0b1220;
+        --muted:#94a3b8;
+        --accent:#06b6d4;
+        --text:#e6eef8;
+        font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      }
+      html,body{height:100%;margin:0}
+      body{
+        background:linear-gradient(180deg,var(--bg),#071020);
+        color:var(--text);
+        -webkit-font-smoothing:antialiased;
+        display:flex;align-items:center;justify-content:center;
+        padding:2rem;
+      }
+      .wrap{max-width:900px;width:100%}
+      header{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem}
+      a.logo{color:var(--text);text-decoration:none;font-weight:700}
+      main{background:var(--card);padding:2rem;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.6)}
+      h1{margin:0 0 0.25rem 0}
+      p.lead{color:var(--muted);margin:0 0 1rem 0}
+      footer{margin-top:1.25rem;color:var(--muted);font-size:0.9rem}
+      .btn{display:inline-block;padding:0.5rem 0.9rem;border-radius:8px;background:var(--accent);color:#071020;text-decoration:none;font-weight:600}
+      @media (max-width:560px){body{padding:1rem}.wrap{padding:0}}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <a class="logo" href="/">Your Name</a>
+        <nav aria-label="Main">
+          <a class="btn" href="#projects">Projects</a>
+        </nav>
+      </header>
+      <main>
+        <h1>Hi — I'm Your Name.</h1>
+        <p class="lead">A short tagline about what you do. Replace this with a concise description.</p>
+        <section id="projects">
+          <h2>Featured Projects</h2>
+          <p class="lead">Add project cards or links here.</p>
+        </section>
+        <footer>
+          Built with a lightweight HTML boilerplate — modify as needed.
+        </footer>
+      </main>
+    </div>
+    <script>
+      // Add interactive scripts here
+      console.log('index.html loaded')
+    </script>
+  </body>
+</html>
