@@ -35,24 +35,35 @@
     <header>
       <h1>Mike Dixon</h1>
     </header>
+
+    <dialog id="portfolio-modal">
+      <button id="close-modal" autofocus>Close</button>
+      <p>This modal dialog has a groovy backdrop!</p>
+    </dialog>
+
     <main class="grid">
       <div class="block lobster-pink block--2col"></div>
       <div class="block ocean-twilight">
         <a href="https://www.google.com" target="_blank"></a>
       </div>
       <div class="block sunflower-gold"></div>
-      <div class="block periwinkle"></div>
+      <div class="block periwinkle">
+        <a href="#" class="block__modal-trigger"></a>
+      </div>
       <div class="block muted-olive"></div>
       <div class="block"></div>
       <div class="block">
         <a href="https://www.google.com" target="_blank"></a>
       </div>
       <div class="block"></div>
-      <div class="block"></div>
+      <div class="block">
+        <a href="#" class="block__modal-trigger"></a>
+      </div>
       <div class="block"></div>
       <div class="block"></div>
       <div class="block"></div>
       <div class="block"></div>
     </main>
+    <script src="js/script.js"></script>
   </body>
 </html>

@@ -56,8 +56,6 @@
   position: relative;
 }
 .block > a::before {
-  background: url("../assets/icons/open-in-new.svg") no-repeat center;
-  background-size: contain;
   content: "";
   height: 28px;
   opacity: 0;
@@ -68,6 +66,14 @@
 }
 .block > a:hover::before, .block > a:focus-visible::before {
   opacity: 1;
+}
+.block > a[target=_blank]::before {
+  background: url("../assets/icons/open-in-new.svg") no-repeat center;
+  background-size: contain;
+}
+.block > a.block__modal-trigger::before {
+  background: url("../assets/icons/open-in-full.svg") no-repeat center;
+  background-size: contain;
 }
 
 .block--2col {
@@ -84,4 +90,9 @@
 
 .shadow-3 {
   box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+}
+
+::backdrop {
+  background-image: linear-gradient(0deg, #333, #111);
+  opacity: 0.75;
 }/*# sourceMappingURL=style.css.map */
