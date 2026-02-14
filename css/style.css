@@ -49,6 +49,26 @@
 .block:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
 }
+.block > a {
+  border-radius: 8px;
+  display: block;
+  height: 100%;
+  position: relative;
+}
+.block > a::before {
+  background: url("../assets/icons/open-in-new.svg") no-repeat center;
+  background-size: contain;
+  content: "";
+  height: 28px;
+  opacity: 0;
+  position: absolute;
+  width: 28px;
+  top: 12px;
+  right: 12px;
+}
+.block > a:hover::before, .block > a:focus-visible::before {
+  opacity: 1;
+}
 
 .block--2col {
   grid-column: span 2;

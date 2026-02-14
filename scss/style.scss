@@ -29,6 +29,34 @@
   &:hover {
     @include mixins.shadow-2;
   }
+
+  & > a {
+    border-radius: global.$radius; // Keeps focus state consistent with block shape
+    display: block;
+    height: 100%;
+    position: relative;
+
+    // "Open in new" icon
+    &::before {
+      background: url("../assets/icons/open-in-new.svg") no-repeat center;
+      background-size: contain;
+      content: "";
+      height: 28px;
+      opacity: 0;
+      position: absolute;
+      width: 28px;
+
+      top: 12px;
+      right: 12px;
+    }
+
+    &:hover,
+    &:focus-visible {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
 }
 
 .block--2col {
