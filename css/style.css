@@ -23,6 +23,7 @@
   display: grid;
   gap: 0.75rem 12px;
   grid-template-columns: 1fr;
+  grid-auto-flow: dense;
 }
 @media (min-width: 480px) {
   .grid {
@@ -67,17 +68,28 @@
 .block > a:hover::before, .block > a:focus-visible::before {
   opacity: 1;
 }
+.block > a {
+  /* Use SVG masks as data URIs to avoid CORS issues */
+}
 .block > a[target=_blank]::before {
-  background: url("../assets/icons/open-in-new.svg") no-repeat center;
-  background-size: contain;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000'%3E%3Cpath d='M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z'/%3E%3C/svg%3E") no-repeat center;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000'%3E%3Cpath d='M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z'/%3E%3C/svg%3E") no-repeat center;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  background-color: currentColor;
 }
 .block > a.block__modal-trigger::before {
-  background: url("../assets/icons/open-in-full.svg") no-repeat center;
-  background-size: contain;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000'%3E%3Cpath d='M120-120v-320h80v184l504-504H520v-80h320v320h-80v-184L256-200h184v80H120Z'/%3E%3C/svg%3E") no-repeat center;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000'%3E%3Cpath d='M120-120v-320h80v184l504-504H520v-80h320v320h-80v-184L256-200h184v80H120Z'/%3E%3C/svg%3E") no-repeat center;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  background-color: currentColor;
 }
 
-.block--2col {
-  grid-column: span 2;
+@media (min-width: 480px) {
+  .block--2col {
+    grid-column: span 2;
+  }
 }
 
 .shadow-1 {
