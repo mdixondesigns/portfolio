@@ -12,6 +12,13 @@ if (triggers && triggers.length) {
       const block = event.target.closest(".block");
       activeBlock = block;
       if (window.innerWidth > 480) {
+        // Close all other expanded blocks
+        const allBlocks = document.querySelectorAll(".block");
+        allBlocks.forEach((b) => {
+          if (b !== block && b.classList.contains("block--expanded")) {
+            b.classList.remove("block--expanded");
+          }
+        });
         block.classList.toggle("block--expanded");
       } else {
         openModal();
