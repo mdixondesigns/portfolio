@@ -1,13 +1,12 @@
 /* SCSS HEX */
-body {
+h1,
+h2,
+h3 {
   margin: 0;
 }
 
-main,
-header,
-footer {
-  margin-right: 8px;
-  margin-left: 8px;
+p {
+  margin: 0;
 }
 
 .lobster-pink {
@@ -58,6 +57,7 @@ footer {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
   border-radius: 8px;
   min-height: 12rem;
+  padding: 1rem 16px;
   transition: box-shadow 0.3s ease-in-out;
 }
 .block:hover {
@@ -72,14 +72,10 @@ footer {
 .block > a::before {
   content: "";
   height: 28px;
-  opacity: 0;
   position: absolute;
   width: 28px;
   top: 12px;
   right: 12px;
-}
-.block > a:hover::before, .block > a:focus-visible::before {
-  opacity: 1;
 }
 .block > a {
   /* Use SVG masks as data URIs to avoid CORS issues */
@@ -91,12 +87,33 @@ footer {
           mask-size: contain;
   background-color: currentColor;
 }
-.block > a.block__modal-trigger::before {
+.block > a.block__expand-trigger::before {
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000'%3E%3Cpath d='M120-120v-320h80v184l504-504H520v-80h320v320h-80v-184L256-200h184v80H120Z'/%3E%3C/svg%3E") no-repeat center;
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000'%3E%3Cpath d='M120-120v-320h80v184l504-504H520v-80h320v320h-80v-184L256-200h184v80H120Z'/%3E%3C/svg%3E") no-repeat center;
   -webkit-mask-size: contain;
           mask-size: contain;
   background-color: currentColor;
+}
+.block.block--expanded {
+  min-height: 24rem;
+}
+@media (min-width: 480px) {
+  .block.block--expanded {
+    grid-column: span 2;
+  }
+}
+@media (min-width: 768px) {
+  .block.block--expanded {
+    grid-row: span 2;
+    min-height: none;
+  }
+}
+.block.block--expanded > a.block__expand-trigger::before {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%231f1f1f'%3E%3Cpath d='m136-80-56-56 264-264H160v-80h320v320h-80v-184L136-80Zm344-400v-320h80v184l264-264 56 56-264 264h184v80H480Z'/%3E%3C/svg%3E") no-repeat center;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%231f1f1f'%3E%3Cpath d='m136-80-56-56 264-264H160v-80h320v320h-80v-184L136-80Zm344-400v-320h80v184l264-264 56 56-264 264h184v80H480Z'/%3E%3C/svg%3E") no-repeat center;
+}
+.block p {
+  margin-top: 0.5rem;
 }
 
 @media (min-width: 480px) {

@@ -1,13 +1,20 @@
 const dialog = document.getElementById("portfolio-modal");
-const triggers = document.getElementsByClassName("block__modal-trigger");
 const closeButton = document.getElementById("close-modal");
 
-// Attach click handler to every .block__modal-trigger element
+const triggers = document.getElementsByClassName("block__expand-trigger");
+let activeBlock = null; // Track which block is currently active
+
+// Attach click handler to every .block__expand-trigger element
 if (triggers && triggers.length) {
   for (let i = 0; i < triggers.length; i++) {
-    triggers[i].addEventListener("click", () => {
-      if (dialog && typeof dialog.showModal === "function") {
-        dialog.showModal();
+    triggers[i].addEventListener("click", (event) => {
+      event.preventDefault();
+      const block = event.target.closest(".block");
+      activeBlock = block;
+      if (window.innerWidth > 480) {
+        block.classList.toggle("block--expanded");
+      } else {
+        openModal();
       }
     });
   }
@@ -16,8 +23,38 @@ if (triggers && triggers.length) {
 // "Close" button closes the dialog (safely)
 if (closeButton) {
   closeButton.addEventListener("click", () => {
-    if (dialog && typeof dialog.close === "function") {
-      dialog.close();
-    }
+    closeModal();
   });
 }
+
+function closeModal() {
+  if (dialog && typeof dialog.close === "function") {
+    dialog.close();
+  }
+}
+
+function openModal() {
+  if (dialog && typeof dialog.showModal === "function") {
+    dialog.showModal();
+  }
+}
+
+// Handle responsive transitions when window is resized
+window.addEventListener("resize", () => {
+  if (!activeBlock) return;
+
+  const isModalOpen = dialog && dialog.open;
+  const isBlockExpanded = activeBlock.classList.contains("block--expanded");
+
+  // Transitioning from mobile to desktop: close modal, expand block
+  if (window.innerWidth > 480 && isModalOpen) {
+    closeModal();
+    activeBlock.classList.add("block--expanded");
+  }
+
+  // Transitioning from desktop to mobile: collapse block, open modal
+  if (window.innerWidth <= 480 && isBlockExpanded) {
+    activeBlock.classList.remove("block--expanded");
+    openModal();
+  }
+});

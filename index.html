@@ -32,12 +32,6 @@
     <link rel="manifest" href="site.webmanifest" />
   </head>
   <body>
-    <header>
-      <div class="grid">
-        <h1>Mike Dixon</h1>
-      </div>
-    </header>
-
     <dialog id="portfolio-modal">
       <button id="close-modal" autofocus>Close</button>
       <p>This modal dialog has a groovy backdrop!</p>
@@ -45,13 +39,16 @@
 
     <main>
       <section class="grid">
-        <div class="block lobster-pink block--2col"></div>
+        <div class="bio block block--2col lobster-pink">
+          <h1 class="bio__title">Mike Dixon</h1>
+          <p class="bio__subtitle">Senior UX Developer</p>
+        </div>
         <div class="block ocean-twilight">
           <a href="https://www.google.com" target="_blank"></a>
         </div>
         <div class="block sunflower-gold"></div>
         <div class="block periwinkle">
-          <a href="#" class="block__modal-trigger"></a>
+          <a href="#" class="block__expand-trigger"></a>
         </div>
         <div class="block muted-olive"></div>
         <div class="block"></div>
@@ -60,7 +57,7 @@
         </div>
         <div class="block"></div>
         <div class="block">
-          <a href="#" class="block__modal-trigger"></a>
+          <a href="#" class="block__expand-trigger"></a>
         </div>
         <div class="block"></div>
         <div class="block block--2col"></div>
