@@ -2,6 +2,10 @@
 
 // Colors
 /* SCSS HEX */
+$dark-gray: #333;
+$gray: #666;
+$light-gray: #ccc;
+
 $lobster-pink: #db5461ff;
 $ocean-twilight: #4c4c9dff;
 $sunflower-gold: #fabc3cff;
@@ -14,6 +18,10 @@ $radius: 8px;
 $bp-s: 480px;
 $bp-m: 768px;
 $bp-l: 1024px;
+
+body {
+  color: $dark-gray;
+}
 
 h1,
 h2,
@@ -30,6 +38,7 @@ p {
 }
 .ocean-twilight {
   background-color: $ocean-twilight;
+  color: white;
 }
 .sunflower-gold {
   background-color: $sunflower-gold;
