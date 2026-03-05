@@ -15,6 +15,17 @@ $bp-s: 480px;
 $bp-m: 768px;
 $bp-l: 1024px;
 
+body {
+  margin: 0;
+}
+
+main,
+header,
+footer {
+  margin-right: 8px;
+  margin-left: 8px;
+}
+
 .lobster-pink {
   background-color: $lobster-pink;
 }
