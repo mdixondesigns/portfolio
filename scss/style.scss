@@ -27,6 +27,7 @@
   border-radius: global.$radius;
   min-height: 12rem;
   padding: 1rem 16px;
+  position: relative;
   transition: box-shadow 0.3s ease-in-out;
 
   &:hover {
@@ -36,8 +37,12 @@
   & > a {
     border-radius: global.$radius; // Keeps focus state consistent with block shape
     display: block;
-    height: 100%;
-    position: relative;
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
     // Block icon
     &::before {
