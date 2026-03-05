@@ -1,6 +1,7 @@
 /* SCSS HEX */
 body {
   color: #333;
+  font-family: system-ui;
 }
 
 h1,
