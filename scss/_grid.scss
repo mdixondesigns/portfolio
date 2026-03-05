@@ -24,6 +24,9 @@
 
 .block {
   @include mixins.shadow-1;
+  background-color: #fafafa;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
   border-radius: global.$radius;
   min-height: 12rem;
   padding: 1rem 16px;
@@ -32,6 +35,37 @@
 
   &:hover {
     @include mixins.shadow-2;
+  }
+
+  &:has(> a) {
+    padding-top: 2.2rem; // Creates space for the block icon when a link is present
+  }
+
+  &.lobster-pink {
+    background-color: global.$lobster-pink;
+    border-top-color: global.$lobster-pink--light;
+    border-left-color: global.$lobster-pink--light;
+  }
+  &.ocean-twilight {
+    background-color: global.$ocean-twilight;
+    border-top-color: global.$ocean-twilight--light;
+    border-left-color: global.$ocean-twilight--light;
+    color: white;
+  }
+  &.sunflower-gold {
+    background-color: global.$sunflower-gold;
+    border-top-color: global.$sunflower-gold--light;
+    border-left-color: global.$sunflower-gold--light;
+  }
+  &.periwinkle {
+    background-color: global.$periwinkle;
+    border-top-color: global.$periwinkle--light;
+    border-left-color: global.$periwinkle--light;
+  }
+  &.muted-olive {
+    background-color: global.$muted-olive;
+    border-top-color: global.$muted-olive--light;
+    border-left-color: global.$muted-olive--light;
   }
 
   &.block--expanded {
@@ -106,11 +140,6 @@
     display: block;
     position: absolute;
 
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
     &:hover,
     &:focus-visible {
       &::before {
@@ -122,26 +151,40 @@
     &::before {
       background-color: global.$gray;
       content: "";
-      height: 24px;
-      position: absolute;
+      height: 22px;
       transition: background-color 0.2s ease-in-out;
-      width: 24px;
-
-      top: 12px;
-      right: 12px;
+      width: 22px;
     }
 
     /* Use SVG masks as data URIs to avoid CORS issues */
-    &[target="_blank"]::before {
-      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000'%3E%3Cpath d='M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z'/%3E%3C/svg%3E")
-        no-repeat center;
-      mask-size: contain;
+    &[target="_blank"] {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      &::before {
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000'%3E%3Cpath d='M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z'/%3E%3C/svg%3E")
+          no-repeat center;
+        mask-size: contain;
+        position: absolute;
+
+        top: 14px;
+        right: 14px;
+      }
     }
 
-    &.block__expand-trigger::before {
-      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000'%3E%3Cpath d='M120-120v-320h80v184l504-504H520v-80h320v320h-80v-184L256-200h184v80H120Z'/%3E%3C/svg%3E")
-        no-repeat center;
-      mask-size: contain;
+    &.block__expand-trigger {
+      padding: 14px; // Increases clickable area for the expand trigger
+      top: 0;
+      right: 0;
+
+      &::before {
+        display: block;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000'%3E%3Cpath d='M120-120v-320h80v184l504-504H520v-80h320v320h-80v-184L256-200h184v80H120Z'/%3E%3C/svg%3E")
+          no-repeat center;
+        mask-size: contain;
+      }
     }
   }
 

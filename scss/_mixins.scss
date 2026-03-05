@@ -1,12 +1,12 @@
 // Shadow utility mixins
 @mixin shadow-1 {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.15);
 }
 
 @mixin shadow-2 {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 3px 3px 16px 4px rgba(0, 0, 0, 0.09);
 }
 
 @mixin shadow-3 {
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+  box-shadow: 10px 10px 21px 0 rgba(0, 0, 0, 0.09);
 }

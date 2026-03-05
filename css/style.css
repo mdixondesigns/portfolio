@@ -13,27 +13,6 @@ p {
   margin: 0;
 }
 
-.lobster-pink {
-  background-color: #db5461;
-}
-
-.ocean-twilight {
-  background-color: #4c4c9d;
-  color: white;
-}
-
-.sunflower-gold {
-  background-color: #fabc3c;
-}
-
-.periwinkle {
-  background-color: #c3c9e9;
-}
-
-.muted-olive {
-  background-color: #95bf8f;
-}
-
 .grid {
   display: grid;
   gap: 1rem 16px;
@@ -59,7 +38,10 @@ p {
 }
 
 .block {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.15);
+  background-color: #fafafa;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
   border-radius: 8px;
   min-height: 12rem;
   padding: 1rem 16px;
@@ -67,7 +49,36 @@ p {
   transition: box-shadow 0.3s ease-in-out;
 }
 .block:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 3px 3px 16px 4px rgba(0, 0, 0, 0.09);
+}
+.block:has(> a) {
+  padding-top: 2.2rem;
+}
+.block.lobster-pink {
+  background-color: #db5461;
+  border-top-color: rgb(242, 209, 212);
+  border-left-color: rgb(242, 209, 212);
+}
+.block.ocean-twilight {
+  background-color: #4c4c9d;
+  border-top-color: rgb(178, 178, 249);
+  border-left-color: rgb(178, 178, 249);
+  color: white;
+}
+.block.sunflower-gold {
+  background-color: #fabc3c;
+  border-top-color: rgb(255, 245, 225);
+  border-left-color: rgb(255, 245, 225);
+}
+.block.periwinkle {
+  background-color: #c3c9e9;
+  border-top-color: rgb(244, 245, 255);
+  border-left-color: rgb(244, 245, 255);
+}
+.block.muted-olive {
+  background-color: #95bf8f;
+  border-top-color: rgb(229, 241, 227);
+  border-left-color: rgb(229, 241, 227);
 }
 .block.block--expanded {
   min-height: 24rem;
@@ -106,10 +117,6 @@ p {
   border-radius: 8px;
   display: block;
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
 }
 .block > a:hover::before, .block > a:focus-visible::before {
   background-color: #333;
@@ -117,23 +124,35 @@ p {
 .block > a::before {
   background-color: #666;
   content: "";
-  height: 24px;
-  position: absolute;
+  height: 22px;
   transition: background-color 0.2s ease-in-out;
-  width: 24px;
-  top: 12px;
-  right: 12px;
+  width: 22px;
 }
 .block > a {
   /* Use SVG masks as data URIs to avoid CORS issues */
+}
+.block > a[target=_blank] {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 .block > a[target=_blank]::before {
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000'%3E%3Cpath d='M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z'/%3E%3C/svg%3E") no-repeat center;
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000'%3E%3Cpath d='M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z'/%3E%3C/svg%3E") no-repeat center;
   -webkit-mask-size: contain;
           mask-size: contain;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+.block > a.block__expand-trigger {
+  padding: 14px;
+  top: 0;
+  right: 0;
 }
 .block > a.block__expand-trigger::before {
+  display: block;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000'%3E%3Cpath d='M120-120v-320h80v184l504-504H520v-80h320v320h-80v-184L256-200h184v80H120Z'/%3E%3C/svg%3E") no-repeat center;
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000'%3E%3Cpath d='M120-120v-320h80v184l504-504H520v-80h320v320h-80v-184L256-200h184v80H120Z'/%3E%3C/svg%3E") no-repeat center;
   -webkit-mask-size: contain;
@@ -150,15 +169,15 @@ p {
 }
 
 .shadow-1 {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.15);
 }
 
 .shadow-2 {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 3px 3px 16px 4px rgba(0, 0, 0, 0.09);
 }
 
 .shadow-3 {
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+  box-shadow: 10px 10px 21px 0 rgba(0, 0, 0, 0.09);
 }
 
 ::backdrop {

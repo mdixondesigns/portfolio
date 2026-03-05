@@ -12,6 +12,12 @@ $sunflower-gold: #fabc3cff;
 $periwinkle: #c3c9e9ff;
 $muted-olive: #95bf8fff;
 
+$lobster-pink--light: rgb(242, 209, 212);
+$ocean-twilight--light: rgb(178, 178, 249);
+$sunflower-gold--light: rgb(255, 245, 225);
+$periwinkle--light: rgb(244, 245, 255);
+$muted-olive--light: rgb(229, 241, 227);
+
 $radius: 8px;
 
 // Media Queries
@@ -31,21 +37,4 @@ h3 {
 
 p {
   margin: 0;
-}
-
-.lobster-pink {
-  background-color: $lobster-pink;
-}
-.ocean-twilight {
-  background-color: $ocean-twilight;
-  color: white;
-}
-.sunflower-gold {
-  background-color: $sunflower-gold;
-}
-.periwinkle {
-  background-color: $periwinkle;
-}
-.muted-olive {
-  background-color: $muted-olive;
 }
