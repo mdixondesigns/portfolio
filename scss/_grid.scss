@@ -193,6 +193,11 @@
         }
       }
 
+      &:focus-visible {
+        outline-style: solid; // explicitly set outline style to prevent warping due to hidden link text
+        outline-width: 2px;
+      }
+
       & + svg {
         fill: global.$light-gray;
         position: absolute;
