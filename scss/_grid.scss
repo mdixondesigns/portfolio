@@ -81,7 +81,7 @@
       min-height: auto;
     }
 
-    & > a {
+    & > button {
       &.block__expand-trigger::before {
         mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%231f1f1f'%3E%3Cpath d='m136-80-56-56 264-264H160v-80h320v320h-80v-184L136-80Zm344-400v-320h80v184l264-264 56 56-264 264h184v80H480Z'/%3E%3C/svg%3E")
           no-repeat center;
@@ -143,7 +143,8 @@
     }
   }
 
-  & > a {
+  & > a,
+  & > button {
     border-radius: global.$radius; // Keeps focus state consistent with block shape
     display: block;
     position: absolute;
@@ -164,7 +165,9 @@
       transition: background-color 0.2s ease-in-out;
       width: 22px;
     }
+  }
 
+  & > a {
     /* Use SVG masks as data URIs to avoid CORS issues */
     &[target="_blank"] {
       top: 0;
@@ -199,6 +202,12 @@
         left: calc(50% - (global.$block-icon-size / 2));
       }
     }
+  }
+
+  & > button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 
     &.block__expand-trigger {
       padding: 14px; // Increases clickable area for the expand trigger

@@ -8,7 +8,6 @@ let activeBlock = null; // Track which block is currently active
 if (triggers && triggers.length) {
   for (let i = 0; i < triggers.length; i++) {
     triggers[i].addEventListener("click", (event) => {
-      event.preventDefault();
       const block = event.target.closest(".block");
       activeBlock = block;
       if (window.innerWidth > 480) {
