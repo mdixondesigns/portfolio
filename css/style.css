@@ -129,8 +129,14 @@ p {
   left: auto;
 }
 .block.block--expanded > img.logo {
+  background-color: transparent;
+  padding: 0;
   position: relative;
   margin-top: 1rem;
+  top: auto;
+}
+.block.block--expanded .block__expand-content {
+  display: block;
 }
 .block.overlay:not(.block--expanded)::after {
   background-color: #333;
@@ -251,6 +257,9 @@ p {
   left: 0;
 }
 .block > img.logo {
+  background-color: white;
+  border-radius: 4px;
+  padding: 0.25rem 6px;
   position: absolute;
   max-width: 120px;
   z-index: 1;
@@ -258,6 +267,9 @@ p {
 }
 .block p {
   margin-top: 0.5rem;
+}
+.block .block__expand-content {
+  display: none;
 }
 
 @media (min-width: 480px) {

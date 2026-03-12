@@ -111,9 +111,17 @@
       }
 
       &.logo {
+        background-color: transparent;
+        padding: 0;
         position: relative;
         margin-top: 1rem;
+
+        top: auto;
       }
+    }
+
+    .block__expand-content {
+      display: block;
     }
   }
 
@@ -302,6 +310,9 @@
     }
 
     &.logo {
+      background-color: white;
+      border-radius: calc(global.$radius / 2);
+      padding: 0.25rem 6px;
       position: absolute;
       max-width: global.$block-icon-size;
       z-index: 1;
@@ -312,6 +323,10 @@
 
   p {
     margin-top: 0.5rem;
+  }
+
+  .block__expand-content {
+    display: none;
   }
 }
 
