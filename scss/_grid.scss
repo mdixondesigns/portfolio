@@ -24,6 +24,7 @@
 
 .block {
   @include mixins.shadow-1;
+
   background-color: #fafafa;
   border-top: 1px solid white;
   border-left: 1px solid white;
@@ -227,6 +228,18 @@
         mask-size: contain;
       }
     }
+  }
+
+  & > img {
+    border-radius: global.$radius;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    width: 100%;
+
+    top: 0;
+    left: 0;
   }
 
   p {

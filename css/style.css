@@ -199,6 +199,18 @@ p {
   -webkit-mask-size: contain;
           mask-size: contain;
 }
+.block > img {
+  border-radius: 8px;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
 .block p {
   margin-top: 0.5rem;
 }
