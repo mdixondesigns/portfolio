@@ -49,7 +49,7 @@ p {
   position: relative;
   transition: box-shadow 0.3s ease-in-out;
 }
-.block:hover {
+.block:hover, .block:focus-within {
   box-shadow: 3px 3px 16px 4px rgba(0, 0, 0, 0.09);
 }
 .block:has(> a) {
@@ -92,7 +92,7 @@ p {
 @media (min-width: 768px) {
   .block.block--expanded {
     grid-row: span 2;
-    min-height: none;
+    min-height: auto;
   }
 }
 .block.block--expanded > a.block__expand-trigger::before {
