@@ -97,16 +97,23 @@
     }
 
     & > img {
-      border-radius: 0;
-      height: auto;
-      max-width: calc(
-        100% - 36px
-      ); // leave a little space for the collapse icon
-      object-fit: unset;
-      position: relative;
+      &.hero-img {
+        border-radius: 0;
+        height: auto;
+        max-width: calc(
+          100% - 36px
+        ); // leave a little space for the collapse icon
+        object-fit: unset;
+        position: relative;
 
-      top: auto;
-      left: auto;
+        top: auto;
+        left: auto;
+      }
+
+      &.logo {
+        position: relative;
+        margin-top: 1rem;
+      }
     }
   }
 
@@ -282,15 +289,25 @@
   }
 
   & > img {
-    border-radius: global.$radius;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    position: absolute;
-    width: 100%;
+    &.hero-img {
+      border-radius: global.$radius;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      width: 100%;
 
-    top: 0;
-    left: 0;
+      top: 0;
+      left: 0;
+    }
+
+    &.logo {
+      position: absolute;
+      max-width: global.$block-icon-size;
+      z-index: 1;
+
+      top: 1rem;
+    }
   }
 
   p {
