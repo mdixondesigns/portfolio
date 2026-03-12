@@ -70,6 +70,12 @@
     border-top-color: global.$muted-olive--light;
     border-left-color: global.$muted-olive--light;
   }
+  &.dark-gray {
+    background-color: global.$dark-gray;
+    border-top-color: global.$light-gray;
+    border-left-color: global.$light-gray;
+    color: white;
+  }
 
   &.block--expanded {
     min-height: 24rem;
@@ -92,7 +98,8 @@
   }
 
   &.lobster-pink,
-  &.ocean-twilight {
+  &.ocean-twilight,
+  &.dark-gray {
     & > a:hover,
     & > a:focus-visible {
       &::before {
@@ -131,6 +138,14 @@
     & > a {
       &::before {
         background-color: global.$periwinkle;
+      }
+    }
+  }
+
+  &.dark-gray {
+    & > a {
+      &::before {
+        background-color: global.$light-gray;
       }
     }
   }
