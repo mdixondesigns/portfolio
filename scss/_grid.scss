@@ -96,6 +96,13 @@
         background-color: white;
       }
     }
+
+    & > a:focus-visible {
+      outline-color: white;
+      outline-offset: -7px;
+      outline-style: solid;
+      outline-width: 2px;
+    }
   }
 
   &.sunflower-gold,
@@ -139,6 +146,7 @@
     border-radius: global.$radius; // Keeps focus state consistent with block shape
     display: block;
     position: absolute;
+    z-index: 1; // Ensures the link is above the block content for better accessibility
 
     &:hover,
     &:focus-visible {
@@ -171,6 +179,23 @@
 
         top: 14px;
         right: 14px;
+      }
+
+      &:hover,
+      &:focus-visible {
+        & + svg {
+          fill: white;
+        }
+      }
+
+      & + svg {
+        fill: global.$light-gray;
+        position: absolute;
+        transition: fill 0.2s ease-in-out;
+        width: global.$block-icon-size;
+
+        top: calc(50% - (global.$block-icon-size / 2));
+        left: calc(50% - (global.$block-icon-size / 2));
       }
     }
 

@@ -102,6 +102,12 @@ p {
 .block.lobster-pink > a:hover::before, .block.lobster-pink > a:focus-visible::before, .block.ocean-twilight > a:hover::before, .block.ocean-twilight > a:focus-visible::before {
   background-color: white;
 }
+.block.lobster-pink > a:focus-visible, .block.ocean-twilight > a:focus-visible {
+  outline-color: white;
+  outline-offset: -7px;
+  outline-style: solid;
+  outline-width: 2px;
+}
 .block.sunflower-gold > a:hover::before, .block.sunflower-gold > a:focus-visible::before, .block.periwinkle > a:hover::before, .block.periwinkle > a:focus-visible::before, .block.muted-olive > a:hover::before, .block.muted-olive > a:focus-visible::before {
   background-color: #333;
 }
@@ -118,6 +124,7 @@ p {
   border-radius: 8px;
   display: block;
   position: absolute;
+  z-index: 1;
 }
 .block > a:hover::before, .block > a:focus-visible::before {
   background-color: #333;
@@ -146,6 +153,17 @@ p {
   position: absolute;
   top: 14px;
   right: 14px;
+}
+.block > a[target=_blank]:hover + svg, .block > a[target=_blank]:focus-visible + svg {
+  fill: white;
+}
+.block > a[target=_blank] + svg {
+  fill: #ccc;
+  position: absolute;
+  transition: fill 0.2s ease-in-out;
+  width: 120px;
+  top: calc(50% - 60px);
+  left: calc(50% - 60px);
 }
 .block > a.block__expand-trigger {
   padding: 14px;
