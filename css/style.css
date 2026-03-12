@@ -65,7 +65,7 @@ p {
 .block:hover, .block:focus-within {
   box-shadow: 3px 3px 16px 4px rgba(0, 0, 0, 0.09);
 }
-.block:has(> a) {
+.block:has(> a), .block:has(> button) {
   padding-top: 2.2rem;
 }
 .block.lobster-pink {

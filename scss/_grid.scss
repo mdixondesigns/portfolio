@@ -38,7 +38,8 @@
     @include mixins.shadow-2;
   }
 
-  &:has(> a) {
+  &:has(> a),
+  &:has(> button) {
     padding-top: 2.2rem; // Creates space for the block icon when a link is present
   }
 
