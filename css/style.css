@@ -118,6 +118,32 @@ p {
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%231f1f1f'%3E%3Cpath d='m136-80-56-56 264-264H160v-80h320v320h-80v-184L136-80Zm344-400v-320h80v184l264-264 56 56-264 264h184v80H480Z'/%3E%3C/svg%3E") no-repeat center;
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%231f1f1f'%3E%3Cpath d='m136-80-56-56 264-264H160v-80h320v320h-80v-184L136-80Zm344-400v-320h80v184l264-264 56 56-264 264h184v80H480Z'/%3E%3C/svg%3E") no-repeat center;
 }
+.block.block--expanded > img {
+  border-radius: 0;
+  height: auto;
+  max-width: calc(100% - 36px);
+  -o-object-fit: unset;
+     object-fit: unset;
+  position: relative;
+  top: auto;
+  left: auto;
+}
+.block.overlay:not(.block--expanded)::after {
+  background-color: #333;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  opacity: 0.4;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.block.overlay:not(.block--expanded) > button::before {
+  background-color: white;
+}
 .block.lobster-pink > a:hover::before, .block.lobster-pink > a:focus-visible::before, .block.ocean-twilight > a:hover::before, .block.ocean-twilight > a:focus-visible::before, .block.dark-gray > a:hover::before, .block.dark-gray > a:focus-visible::before {
   background-color: white;
 }
