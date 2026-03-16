@@ -1,0 +1,344 @@
+@use "global";
+@use "mixins";
+
+.block {
+  @include mixins.shadow-1;
+
+  background-color: #fafafa;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+  border-radius: global.$radius;
+  min-height: 12rem;
+  padding: 1rem 16px;
+  position: relative;
+  transition: box-shadow 0.3s ease-in-out;
+
+  &:hover,
+  &:focus-within {
+    @include mixins.shadow-2;
+  }
+
+  &:has(> a),
+  &:has(> button) {
+    padding-top: 2.2rem; // Creates space for the block icon when a link is present
+  }
+
+  &.lobster-pink {
+    background-color: global.$lobster-pink;
+    border-top-color: global.$lobster-pink--light;
+    border-left-color: global.$lobster-pink--light;
+    color: white;
+  }
+  &.ocean-twilight {
+    background-color: global.$ocean-twilight;
+    border-top-color: global.$ocean-twilight--light;
+    border-left-color: global.$ocean-twilight--light;
+    color: white;
+  }
+  &.sunflower-gold {
+    background-color: global.$sunflower-gold;
+    border-top-color: global.$sunflower-gold--light;
+    border-left-color: global.$sunflower-gold--light;
+  }
+  &.periwinkle {
+    background-color: global.$periwinkle;
+    border-top-color: global.$periwinkle--light;
+    border-left-color: global.$periwinkle--light;
+  }
+  &.muted-olive {
+    background-color: global.$muted-olive;
+    border-top-color: global.$muted-olive--light;
+    border-left-color: global.$muted-olive--light;
+  }
+  &.dark-gray {
+    background-color: global.$dark-gray;
+    border-top-color: global.$light-gray;
+    border-left-color: global.$light-gray;
+    color: white;
+  }
+
+  &.block--expanded {
+    background-color: white;
+    min-height: 24rem;
+
+    @media (min-width: global.$bp-s) {
+      border: 2px solid;
+      grid-column: span 2;
+      padding-bottom: 2rem;
+    }
+
+    @media (min-width: global.$bp-m) {
+      grid-row: span 2;
+      min-height: auto;
+    }
+
+    &.lobster-pink {
+      border-color: global.$lobster-pink;
+    }
+
+    &.ocean-twilight {
+      border-color: global.$ocean-twilight;
+    }
+
+    &.sunflower-gold {
+      border-color: global.$sunflower-gold;
+    }
+
+    &.periwinkle {
+      border-color: global.$periwinkle;
+    }
+
+    &.muted-olive {
+      border-color: global.$muted-olive;
+    }
+
+    & > button {
+      &.block__expand-trigger::before {
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%231f1f1f'%3E%3Cpath d='m136-80-56-56 264-264H160v-80h320v320h-80v-184L136-80Zm344-400v-320h80v184l264-264 56 56-264 264h184v80H480Z'/%3E%3C/svg%3E")
+          no-repeat center;
+      }
+    }
+
+    & > img {
+      &.hero-img {
+        border-radius: 0;
+        height: auto;
+        max-width: calc(
+          100% - 36px
+        ); // leave a little space for the collapse icon
+        object-fit: unset;
+        position: relative;
+
+        top: auto;
+        left: auto;
+      }
+
+      &.logo {
+        background-color: transparent;
+        padding: 0;
+        position: relative;
+        margin-top: 1rem;
+
+        top: auto;
+      }
+    }
+
+    .block__expand-content {
+      display: block;
+    }
+  }
+
+  &.overlay {
+    &:not(.block--expanded) {
+      &::after {
+        background-color: global.$dark-gray;
+        border-radius: global.$radius;
+        content: "";
+        display: block;
+        opacity: 0.4;
+        pointer-events: none;
+        position: absolute;
+
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+
+      & > button::before {
+        background-color: white;
+      }
+    }
+  }
+
+  &.lobster-pink,
+  &.ocean-twilight,
+  &.dark-gray {
+    & > a:hover,
+    & > a:focus-visible {
+      &::before {
+        background-color: white;
+      }
+    }
+
+    & > a:focus-visible {
+      outline-color: white;
+      outline-offset: -7px;
+      outline-style: solid;
+      outline-width: 2px;
+    }
+  }
+
+  &.sunflower-gold,
+  &.periwinkle,
+  &.muted-olive {
+    & > a:hover,
+    & > a:focus-visible {
+      &::before {
+        background-color: global.$dark-gray;
+      }
+    }
+  }
+
+  &.lobster-pink {
+    & > a {
+      &::before {
+        background-color: global.$sunflower-gold;
+      }
+    }
+  }
+
+  &.ocean-twilight {
+    & > a {
+      &::before {
+        background-color: global.$periwinkle;
+      }
+    }
+  }
+
+  &.dark-gray {
+    & > a {
+      &::before {
+        background-color: global.$light-gray;
+      }
+    }
+  }
+
+  &.sunflower-gold,
+  &.periwinkle,
+  &.muted-olive {
+    & > a {
+      &::before {
+        background-color: global.$ocean-twilight;
+      }
+    }
+  }
+
+  & > a,
+  & > button {
+    border-radius: global.$radius; // Keeps focus state consistent with block shape
+    display: block;
+    position: absolute;
+    z-index: 1; // Ensures the link is above the block content for better accessibility
+
+    &:hover,
+    &:focus-visible {
+      &::before {
+        background-color: global.$dark-gray;
+      }
+    }
+
+    // Block icon
+    &::before {
+      background-color: global.$gray;
+      content: "";
+      height: 22px;
+      transition: background-color 0.2s ease-in-out;
+      width: 22px;
+    }
+  }
+
+  & > a {
+    /* Use SVG masks as data URIs to avoid CORS issues */
+    &[target="_blank"] {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      &::before {
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000'%3E%3Cpath d='M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z'/%3E%3C/svg%3E")
+          no-repeat center;
+        mask-size: contain;
+        position: absolute;
+
+        top: 14px;
+        right: 14px;
+      }
+
+      &:hover,
+      &:focus-visible {
+        & + svg {
+          fill: white;
+        }
+      }
+
+      &:focus-visible {
+        outline-style: solid; // explicitly set outline style to prevent warping due to hidden link text
+        outline-width: 2px;
+      }
+
+      & + svg {
+        fill: global.$light-gray;
+        position: absolute;
+        transition: fill 0.2s ease-in-out;
+        width: global.$block-icon-size;
+
+        top: calc(50% - (global.$block-icon-size / 2));
+        left: calc(50% - (global.$block-icon-size / 2));
+      }
+    }
+  }
+
+  & > button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &.block__expand-trigger {
+      padding: 14px; // Increases clickable area for the expand trigger
+      top: 0;
+      right: 0;
+
+      &::before {
+        display: block;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000'%3E%3Cpath d='M120-120v-320h80v184l504-504H520v-80h320v320h-80v-184L256-200h184v80H120Z'/%3E%3C/svg%3E")
+          no-repeat center;
+        mask-size: contain;
+      }
+    }
+  }
+
+  & > img {
+    &.hero-img {
+      border-radius: global.$radius;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      width: 100%;
+
+      top: 0;
+      left: 0;
+    }
+
+    &.logo {
+      background-color: white;
+      border-radius: calc(global.$radius / 2);
+      padding: 0.25rem 6px;
+      position: absolute;
+      max-width: global.$block-icon-size;
+      z-index: 1;
+
+      top: 1rem;
+    }
+  }
+
+  p {
+    margin-top: 0.5rem;
+  }
+
+  ul {
+    padding-inline-start: 30px; // overrides default list padding to better align with block content and leave space for the block icon
+  }
+
+  .block__expand-content {
+    display: none;
+  }
+}
+
+.block--2col {
+  @media (min-width: global.$bp-s) {
+    grid-column: span 2;
+  }
+}

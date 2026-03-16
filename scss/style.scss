@@ -1,6 +1,7 @@
 @use "global";
 @use "mixins";
 @use "grid";
+@use "blocks";
 
 .shadow-1 {
   @include mixins.shadow-1;
