@@ -72,6 +72,7 @@ p {
   background-color: #db5461;
   border-top-color: rgb(242, 209, 212);
   border-left-color: rgb(242, 209, 212);
+  color: white;
 }
 .block.ocean-twilight {
   background-color: #4c4c9d;
@@ -101,11 +102,14 @@ p {
   color: white;
 }
 .block.block--expanded {
+  background-color: white;
   min-height: 24rem;
 }
 @media (min-width: 480px) {
   .block.block--expanded {
+    border: 2px solid;
     grid-column: span 2;
+    padding-bottom: 2rem;
   }
 }
 @media (min-width: 768px) {
@@ -113,6 +117,21 @@ p {
     grid-row: span 2;
     min-height: auto;
   }
+}
+.block.block--expanded.lobster-pink {
+  border-color: #db5461;
+}
+.block.block--expanded.ocean-twilight {
+  border-color: #4c4c9d;
+}
+.block.block--expanded.sunflower-gold {
+  border-color: #fabc3c;
+}
+.block.block--expanded.periwinkle {
+  border-color: #c3c9e9;
+}
+.block.block--expanded.muted-olive {
+  border-color: #95bf8f;
 }
 .block.block--expanded > button.block__expand-trigger::before {
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%231f1f1f'%3E%3Cpath d='m136-80-56-56 264-264H160v-80h320v320h-80v-184L136-80Zm344-400v-320h80v184l264-264 56 56-264 264h184v80H480Z'/%3E%3C/svg%3E") no-repeat center;
@@ -267,6 +286,9 @@ p {
 }
 .block p {
   margin-top: 0.5rem;
+}
+.block ul {
+  padding-inline-start: 30px;
 }
 .block .block__expand-content {
   display: none;

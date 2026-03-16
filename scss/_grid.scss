@@ -48,6 +48,7 @@
     background-color: global.$lobster-pink;
     border-top-color: global.$lobster-pink--light;
     border-left-color: global.$lobster-pink--light;
+    color: white;
   }
   &.ocean-twilight {
     background-color: global.$ocean-twilight;
@@ -78,15 +79,38 @@
   }
 
   &.block--expanded {
+    background-color: white;
     min-height: 24rem;
 
     @media (min-width: global.$bp-s) {
+      border: 2px solid;
       grid-column: span 2;
+      padding-bottom: 2rem;
     }
 
     @media (min-width: global.$bp-m) {
       grid-row: span 2;
       min-height: auto;
+    }
+
+    &.lobster-pink {
+      border-color: global.$lobster-pink;
+    }
+
+    &.ocean-twilight {
+      border-color: global.$ocean-twilight;
+    }
+
+    &.sunflower-gold {
+      border-color: global.$sunflower-gold;
+    }
+
+    &.periwinkle {
+      border-color: global.$periwinkle;
+    }
+
+    &.muted-olive {
+      border-color: global.$muted-olive;
     }
 
     & > button {
@@ -323,6 +347,10 @@
 
   p {
     margin-top: 0.5rem;
+  }
+
+  ul {
+    padding-inline-start: 30px; // overrides default list padding to better align with block content and leave space for the block icon
   }
 
   .block__expand-content {
