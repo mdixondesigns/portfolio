@@ -157,6 +157,12 @@ p {
 .block.block--expanded .block__expand-content {
   display: block;
 }
+.block:not(.block--expanded) > button.block__expand-trigger:focus-visible {
+  outline-offset: 4px;
+}
+.block.overlay:not(.block--expanded):has(> button:hover)::after, .block.overlay:not(.block--expanded):has(> button:focus-visible)::after {
+  opacity: 0.2;
+}
 .block.overlay:not(.block--expanded)::after {
   background-color: #333;
   border-radius: 8px;
@@ -165,6 +171,14 @@ p {
   opacity: 0.4;
   pointer-events: none;
   position: absolute;
+  transition: opacity 0.2s ease-in-out;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.block.overlay:not(.block--expanded) > button {
+  z-index: 10;
   top: 0;
   right: 0;
   bottom: 0;
@@ -172,6 +186,9 @@ p {
 }
 .block.overlay:not(.block--expanded) > button::before {
   background-color: white;
+  position: absolute;
+  top: 14px;
+  right: 14px;
 }
 .block.lobster-pink > a:hover::before, .block.lobster-pink > a:focus-visible::before, .block.ocean-twilight > a:hover::before, .block.ocean-twilight > a:focus-visible::before, .block.dark-gray > a:hover::before, .block.dark-gray > a:focus-visible::before {
   background-color: white;

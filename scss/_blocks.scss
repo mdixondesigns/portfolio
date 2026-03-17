@@ -93,9 +93,11 @@
     }
 
     & > button {
-      &.block__expand-trigger::before {
-        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%231f1f1f'%3E%3Cpath d='m136-80-56-56 264-264H160v-80h320v320h-80v-184L136-80Zm344-400v-320h80v184l264-264 56 56-264 264h184v80H480Z'/%3E%3C/svg%3E")
-          no-repeat center;
+      &.block__expand-trigger {
+        &::before {
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%231f1f1f'%3E%3Cpath d='m136-80-56-56 264-264H160v-80h320v320h-80v-184L136-80Zm344-400v-320h80v184l264-264 56 56-264 264h184v80H480Z'/%3E%3C/svg%3E")
+            no-repeat center;
+        }
       }
     }
 
@@ -128,8 +130,23 @@
     }
   }
 
+  &:not(.block--expanded) {
+    & > button.block__expand-trigger {
+      &:focus-visible {
+        outline-offset: 4px;
+      }
+    }
+  }
+
   &.overlay {
     &:not(.block--expanded) {
+      &:has(> button:hover),
+      &:has(> button:focus-visible) {
+        &::after {
+          opacity: 0.2;
+        }
+      }
+
       &::after {
         background-color: global.$dark-gray;
         border-radius: global.$radius;
@@ -138,6 +155,7 @@
         opacity: 0.4;
         pointer-events: none;
         position: absolute;
+        transition: opacity 0.2s ease-in-out;
 
         top: 0;
         right: 0;
@@ -145,8 +163,21 @@
         left: 0;
       }
 
-      & > button::before {
-        background-color: white;
+      & > button {
+        z-index: 10; // Ensure the expand trigger is above the logo
+
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        &::before {
+          background-color: white;
+          position: absolute;
+
+          top: 14px;
+          right: 14px;
+        }
       }
     }
   }
