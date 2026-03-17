@@ -311,6 +311,7 @@
     }
   }
 
+  // Expand trigger
   & > button {
     background-color: transparent;
     border: none;
@@ -330,6 +331,7 @@
     }
   }
 
+  // Background image
   & > img {
     &.hero-img {
       border-radius: global.$radius;
@@ -355,6 +357,18 @@
     }
   }
 
+  // Text block
+  & > h2 {
+    font-size: 60px;
+
+    a[target="_blank"] {
+      @include mixins.link-icon("new-tab");
+    }
+    a[href$=".pdf"] {
+      @include mixins.link-icon(download);
+    }
+  }
+
   p {
     margin-top: 0.5rem;
   }
@@ -367,20 +381,10 @@
     display: none;
 
     a[target="_blank"] {
-      &::after {
-        background-color: currentColor;
-        content: "";
-        display: inline-block;
-        height: 0.9em;
-        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px' fill='%23000'%3E%3Cpath d='M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z'/%3E%3C/svg%3E")
-          no-repeat center;
-        mask-size: contain;
-        margin-left: 4px;
-        position: relative;
-        width: 0.9em;
-
-        top: 2px;
-      }
+      @include mixins.link-icon("new-tab");
+    }
+    a[href$=".pdf"] {
+      @include mixins.link-icon(download);
     }
   }
 }
