@@ -394,3 +394,37 @@
     grid-column: span 2;
   }
 }
+
+#portfolio-modal {
+  border-radius: global.$radius;
+  box-sizing: border-box;
+  max-width: calc(100% - 32px);
+
+  #close-modal {
+    cursor: pointer;
+  }
+
+  .hero-img {
+    max-width: 100%;
+  }
+
+  .logo {
+    min-width: 180px;
+    width: 50%;
+  }
+
+  a[target="_blank"] {
+    @include mixins.link-icon("new-tab");
+  }
+  a[href$=".pdf"] {
+    @include mixins.link-icon(download);
+  }
+
+  p {
+    margin-top: 0.5rem;
+  }
+
+  ul {
+    padding-inline-start: 30px; // overrides default list padding to better align with block content and leave space for the block icon
+  }
+}
