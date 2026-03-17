@@ -2,6 +2,8 @@
 // Modal Window
 const dialog = document.getElementById("portfolio-modal");
 const closeButton = document.getElementById("close-modal");
+const modalMedia = dialog ? dialog.querySelector(".modal__media") : null;
+const modalContent = dialog ? dialog.querySelector(".modal__content") : null;
 
 // Expand buttons
 const triggers = document.getElementsByClassName("block__expand-trigger");
@@ -64,6 +66,13 @@ if (closeButton) {
   });
 }
 
+if (dialog) {
+  dialog.addEventListener("close", () => {
+    if (modalMedia) modalMedia.innerHTML = "";
+    if (modalContent) modalContent.innerHTML = "";
+  });
+}
+
 function closeModal() {
   if (dialog && typeof dialog.close === "function") {
     dialog.close();
@@ -71,8 +80,34 @@ function closeModal() {
 }
 
 function openModal() {
-  if (dialog && typeof dialog.showModal === "function") {
+  if (activeBlock) {
+    populateModalFromBlock(activeBlock);
+  }
+  if (dialog && !dialog.open && typeof dialog.showModal === "function") {
     dialog.showModal();
+  }
+}
+
+function populateModalFromBlock(block) {
+  if (!block || !modalMedia || !modalContent) return;
+
+  const heroImage = block.querySelector(".hero-img");
+  const logoImage = block.querySelector(".logo");
+  const expandContent = block.querySelector(".block__expand-content");
+
+  modalMedia.innerHTML = "";
+  modalContent.innerHTML = "";
+
+  if (heroImage) {
+    modalMedia.appendChild(heroImage.cloneNode(true));
+  }
+
+  if (logoImage) {
+    modalMedia.appendChild(logoImage.cloneNode(true));
+  }
+
+  if (expandContent) {
+    modalContent.appendChild(expandContent.cloneNode(true));
   }
 }
 
