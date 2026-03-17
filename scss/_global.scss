@@ -42,6 +42,19 @@ p {
   margin: 0;
 }
 
+a {
+  color: $ocean-twilight;
+  text-underline-offset: 2px;
+
+  &:hover {
+    color: $lobster-pink;
+  }
+
+  &:focus-visible {
+    outline-offset: 2px;
+  }
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
